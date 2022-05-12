@@ -31,7 +31,7 @@ currentComment : Comment = new Comment(0, "", "");
 
 
 constructor(private httpClient: HttpClient) { }
-  comment = "Angular";
+  comment = "";
   postComment = [] as any[];
   
   post () {
