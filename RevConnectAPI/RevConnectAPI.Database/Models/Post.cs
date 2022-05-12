@@ -20,5 +20,36 @@ namespace RevConnectAPI.Database.Models
         public List<Comment>? postComments { get; set; }
         public List<Like>? postLikes { get; set; }
 
+
+
+
+/*
+        // Constructor
+        public Post() { }
+        public Post(int postID, string body, string date, string? image, int userID)
+        {
+            this.postID = postID;
+            this.body = body;
+            this.date = date;
+            this.image = image;
+            //this.userID = userID;
+
+        }
+*/
+
+
+        //// Constructor
+        //public Post() { }
+        //public Post(int postID, string body, DateTime date, string? image, int userID)
+        //{
+        //    this.postID = postID;
+        //    this.body = body;
+        //    //this.date = date;
+        //    this.image = image;
+        //    //this.userID = userID;
+
+        //}
+
+
     }
 }

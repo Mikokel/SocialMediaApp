@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RevConnectAPI.Database.DataAccess;
+using RevConnectAPI.Logic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<RevConnectContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+builder.Services.AddSingleton<IRepository>(sp => new SqlRepository("connectionString", sp.GetRequiredService<ILogger<SqlRepository>>()));
+
 
 var app = builder.Build();
 
