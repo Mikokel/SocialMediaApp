@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#comment-container {
+    margin: 0 auto;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+   
+}
+#commentformHidden {
+    display: none;
+}
+
+#buttons{
+    margin-left: 45%;
+    margin-right: auto;
+}
+

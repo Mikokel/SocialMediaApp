@@ -1,0 +1,85 @@
+<div id="commentContainer">
+    <div class="form-group">
+    <h2 id="comment">Leave a Replay</h2>
+ <!--   <form ng-controller="Controller">
+        <textarea class="form-control" rows="5" ngModel="comment" placeholder="Your Comment"></textarea>
+        <br>
+    </form> -->
+</div>
+
+<textarea [(ngModel)]="comment"></textarea>
+<br/>
+<br/> 
+
+
+<div id = "buttons" #buttoninput>
+<button (click)="post()" name="commentbutton">Comment</button>
+</div>
+
+<br/>
+<br/>
+<label>
+<div *ngFor="let comments of postComment ">
+      <p> {{comments}} </p>
+</div> 
+</label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

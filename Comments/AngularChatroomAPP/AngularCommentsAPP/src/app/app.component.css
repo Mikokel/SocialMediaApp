@@ -1,0 +1,14 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-size: 48px;
+}
+
