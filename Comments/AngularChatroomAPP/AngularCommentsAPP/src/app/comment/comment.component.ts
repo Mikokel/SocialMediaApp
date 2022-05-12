@@ -39,13 +39,6 @@ constructor(private httpClient: HttpClient) { }
     this.comment = "";
     }
 
-   async createComment(buttoninput:string)
-     {
-      if(this.comment)
-      {
-        this.httpClient.post(`https://localhost:7232/api/Comment/ipaddress/${this.currentComment}`, (this.currentComment)).subscribe();
-      }
-   }
     ngOnInit(): void {
       throw new Error('Method not implemented.');
     }
