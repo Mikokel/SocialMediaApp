@@ -9,15 +9,6 @@ const headers= new HttpHeaders()
   .set('content-type', 'application/json')
   .set('Access-Control-Allow-Origin', '*');
 
-  export class Comment {
-    constructor(
-      public ID: number,
-      public Body: any,
-      public TimeStamp: any
-    )
-    {}
-  }
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -25,10 +16,7 @@ const headers= new HttpHeaders()
 })
 
 @Injectable()
-export class CommentComponent implements OnInit{
-  
-currentComment : Comment = new Comment(0, "", "");
-
+export class CommentComponent { 
 
 constructor(private httpClient: HttpClient) { }
   comment = "";
@@ -36,12 +24,21 @@ constructor(private httpClient: HttpClient) { }
   
   post () {
     this.postComment.push(this.comment);
-    this.comment = "";
-    }
-
-    ngOnInit(): void {
-      throw new Error('Method not implemented.');
-    }
+    const headers = { 'content-type': 'application/json'}  
+    let body ={ "body": this.comment};
+    const body1=JSON.stringify(body);
+    
+    console.log(body1)
   
+    const url ='https://localhost:7232/api/Comment/'
+    this.http.post(url,body1,{'headers':headers})
+  .subscribe((res)=>{
+      
+      console.log()  
+    })
+
+    this.comment = "";
+
+    } 
 }
 
