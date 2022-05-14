@@ -39,8 +39,6 @@ namespace RevConnectAPI.Controllers
             return (_context.Posts.ToList());
 
 
-
-
             //IEnumerable<PostData> posts;
             //try
             //{
