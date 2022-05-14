@@ -1,0 +1,94 @@
+table
+{
+    background-color:white;
+    border:1px solid black;
+}
+
+
+#boxmodel
+{
+    /* The outermost layer of the box model is the margin */
+    margin:5px;
+
+    /* The next layer is the border, this is what i consider the limit of the element */
+    border:1px solid black;
+
+    /* The next layer is the padding, this is the space between the border and the content */
+    padding:2%;
+}
+
+
+#container {
+    height: 30px;
+    border: 1px solid black;
+    position: relative;
+    text-align: justify;
+}
+
+#label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    height: 20px;
+    background-color: white;
+    /* border: 1px white; */
+    padding:1%;
+    text-align: center;
+    
+}
+
+
+#contains {
+    height: 100px;
+    /* width: 300px; */
+    border: 1px solid black;
+    position: relative;
+    background-color: lightskyblue;
+
+}
+
+#labels {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    /* height: 20px; */
+    /* width: 100px; */
+    background-color: pink;
+    border: 2px solid red;
+    padding:1%;
+    
+    text-align: center;
+}
+
+
+/* 
+#label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    height: 20px;
+    width: 50px;
+    background-color: white;
+    border: 2px solid white;
+    text-align: center;
+}
+
+#bordertitle {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    height: 20px;
+    width: 100px;
+    background-color: white;
+    border: 1px white;
+    text-align: center;
+} */
+
+
+
+
+
+
+
+
+

@@ -21,6 +21,7 @@ import { ChatroomComponent } from './pages/chatroom/chatroom.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AppLoadingComponent } from './components/app-loading/app-loading.component';
+import { PostfeedComponent } from './pages/postfeed/postfeed.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AppLoadingComponent } from './components/app-loading/app-loading.compon
     ChatroomComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
-    AppLoadingComponent
+    AppLoadingComponent,
+    PostfeedComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +48,8 @@ import { AppLoadingComponent } from './components/app-loading/app-loading.compon
 
     // Import the module into the application, with configuration
     AuthModule.forRoot({
-      domain: 'dev-1kna-o7p.us.auth0.com',
-      clientId: '4mbrJbRZJKwRbCK5p3zByC9HB6httr9Y'
+      domain: 'dev-vz1gskr5.us.auth0.com',
+      clientId: 'Sa0edHkASIaYLSQisCmSpaB4BOrODqbK'
     }),
   ],
   providers: [],
