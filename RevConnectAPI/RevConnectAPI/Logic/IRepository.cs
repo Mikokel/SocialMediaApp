@@ -15,5 +15,9 @@ namespace RevConnectAPI.Logic
     {
         Task<IEnumerable<PostData>> ListOfPosts();
 
+        Task<ContentResult> CreateNewPost(int? postID, string body, string date, string? image, int? userID);
+
+
+
     }
 }

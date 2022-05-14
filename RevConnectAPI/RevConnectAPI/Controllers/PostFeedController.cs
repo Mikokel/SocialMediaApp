@@ -72,6 +72,29 @@ namespace RevConnectAPI.Controllers
             return Ok(postname);
         }
 
+
+
+
+        [HttpPost("/InitialPostFeedPost")]
+        //public void Post([FromBody] string value)
+        //public async Task<ContentResult> CreateNewUserWithPost([FromBody] List<User> newAccts)
+        public async Task<ContentResult> CreateUserPost([FromBody]List <PostData> newPost)
+        {
+            foreach (var stringUserItem in newPost)
+            {
+                string body = stringUserItem.body;
+                string date = stringUserItem.date;
+                string image = stringUserItem.image;
+                await _repository.CreateNewPost(null, body,date, image, null );
+            }
+            
+            return new ContentResult() { StatusCode = 201 };
+        }
+
+
+
+
+
         // PUT api/<ValuesController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

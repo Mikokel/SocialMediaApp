@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using RevConnectAPI.Database.Models;
 using RevConnectAPI.DataClass;
 using System.Text;
@@ -9,7 +10,7 @@ namespace RevConnectAPI.Logic
     {
         // Fields
         public readonly string _connectionString;
-        private readonly ILogger<SqlRepository> _logger;
+        public readonly ILogger<SqlRepository> _logger;
 
         // Constructors
         public SqlRepository(string connectionString,
@@ -40,7 +41,7 @@ namespace RevConnectAPI.Logic
             {
                 var postID = myReader.GetInt32(0);
                 var body = myReader.GetString(1);
-                var date = myReader.GetDateTime(2);
+                var date = myReader.GetString(2);
                 var image = myReader.GetString(3);
                 var userID = myReader.GetInt32(4);
                 
@@ -52,6 +53,33 @@ namespace RevConnectAPI.Logic
             _logger.LogInformation("Executed: ListOfPosts");
 
             return returnList;
+        }
+
+
+        public async Task<ContentResult> CreateNewPost(int? postID, string body, string date, string? image, int? userID)
+        {
+            //List<User> returnList = new();
+            using SqlConnection connection2 = new(_connectionString);
+            //User newUser = new();
+            await connection2.OpenAsync();
+
+            string cmdTxt =
+              @"INSERT INTO [RevConnect].[Posts] ( [body] , [date], [image] ) 
+                VALUES ( @body, @date, @image ); ";
+
+            
+            using SqlCommand SQLcmd = new(cmdTxt, connection2);
+
+            SQLcmd.Parameters.AddWithValue("@body", body);
+            SQLcmd.Parameters.AddWithValue("@date", date);
+            SQLcmd.Parameters.AddWithValue("@image", image);
+
+            SQLcmd.ExecuteNonQuery();
+
+            await connection2.CloseAsync();
+            _logger.LogInformation("New account has been created");
+            return new ContentResult() { StatusCode = 201 };
+
         }
 
 
