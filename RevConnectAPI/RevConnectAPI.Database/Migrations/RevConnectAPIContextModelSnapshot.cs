@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RevConnectAPI.Database.DataAccess;
 
@@ -11,16 +10,15 @@ using RevConnectAPI.Database.DataAccess;
 
 namespace RevConnectAPI.Database.Migrations
 {
-    [DbContext(typeof(RevConnectContext))]
-    [Migration("20220511191754_initialmigration")]
-    partial class initialmigration
+    [DbContext(typeof(RevConnectAPIContext))]
+    partial class RevConnectAPIContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("RevConnect")
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -54,7 +52,7 @@ namespace RevConnectAPI.Database.Migrations
 
                     b.HasIndex("userID");
 
-                    b.ToTable("Comments", "RevConnect");
+                    b.ToTable("Comment", "RevConnect");
                 });
 
             modelBuilder.Entity("RevConnectAPI.Database.Models.Like", b =>
@@ -83,7 +81,7 @@ namespace RevConnectAPI.Database.Migrations
 
                     b.HasIndex("userID");
 
-                    b.ToTable("Likes", "RevConnect");
+                    b.ToTable("Like", "RevConnect");
                 });
 
             modelBuilder.Entity("RevConnectAPI.Database.Models.Post", b =>
@@ -114,7 +112,7 @@ namespace RevConnectAPI.Database.Migrations
 
                     b.HasIndex("userID");
 
-                    b.ToTable("Posts", "RevConnect");
+                    b.ToTable("Post", "RevConnect");
                 });
 
             modelBuilder.Entity("RevConnectAPI.Database.Models.User", b =>
@@ -155,7 +153,7 @@ namespace RevConnectAPI.Database.Migrations
 
                     b.HasKey("userID");
 
-                    b.ToTable("Users", "RevConnect");
+                    b.ToTable("User", "RevConnect");
                 });
 
             modelBuilder.Entity("RevConnectAPI.Database.Models.Comment", b =>

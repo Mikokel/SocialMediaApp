@@ -16,12 +16,12 @@ namespace RevConnectAPI.Controllers
 
     public class PostFeedController : ControllerBase
     {
-        private readonly RevConnectContext _context;
+        private readonly RevConnectAPIContext _context;
         private readonly IRepository _repository;
         //private readonly ILogger<PostFeedController> _logger;
         //private readonly HttpClient httpClientInstance = new HttpClient();
 
-        public PostFeedController(RevConnectContext context, IRepository repository/*, ILogger<PostFeedController> logger*/)
+        public PostFeedController(RevConnectAPIContext context, IRepository repository/*, ILogger<PostFeedController> logger*/)
         {
             _context = context;
             _repository = repository;
@@ -36,7 +36,7 @@ namespace RevConnectAPI.Controllers
         {
 
            
-            return (_context.Posts.ToList());
+            return (_context.Post.ToList());
 
 
             //IEnumerable<PostData> posts;
@@ -55,33 +55,34 @@ namespace RevConnectAPI.Controllers
 
         }
 
-        // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/<ValuesController>/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST api/<ValuesController>
         [HttpPost]
         //public void Post([FromBody] string value)
         public async Task<ActionResult<Post>> createPost(Post postname)
         {
-            _context.Posts.Add(postname);
+            _context.Post.Add(postname);
             await _context.SaveChangesAsync();
             return Ok(postname);
         }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //    // PUT api/<ValuesController>/5
+        //    [HttpPut("{id}")]
+        //    public void Put(int id, [FromBody] string value)
+        //    {
+        //    }
 
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //    // DELETE api/<ValuesController>/5
+        //    [HttpDelete("{id}")]
+        //    public void Delete(int id)
+        //    {
+        //    }
     }
 }
+

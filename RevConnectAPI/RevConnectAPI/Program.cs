@@ -1,8 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using RevConnectAPI.Database.DataAccess;
 using RevConnectAPI.Logic;
+using Microsoft.Extensions.DependencyInjection;
+using RevConnectAPI.Database.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<RevConnectAPIContext>(options =>
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RevConnectAPIContext") ?? throw new InvalidOperationException("Connection string 'RevConnectAPIContext' not found.")));
 
 // Add services to the container.
 
@@ -11,7 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<RevConnectContext>(options =>
+builder.Services.AddDbContext<RevConnectAPIContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });

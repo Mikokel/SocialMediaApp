@@ -4,7 +4,7 @@
 
 namespace RevConnectAPI.Database.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace RevConnectAPI.Database.Migrations
                 name: "RevConnect");
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 schema: "RevConnect",
                 columns: table => new
                 {
@@ -27,11 +27,11 @@ namespace RevConnectAPI.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.userID);
+                    table.PrimaryKey("PK_User", x => x.userID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Posts",
+                name: "Post",
                 schema: "RevConnect",
                 columns: table => new
                 {
@@ -44,17 +44,17 @@ namespace RevConnectAPI.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Posts", x => x.postID);
+                    table.PrimaryKey("PK_Post", x => x.postID);
                     table.ForeignKey(
-                        name: "FK_Posts_Users_userID",
+                        name: "FK_Post_User_userID",
                         column: x => x.userID,
                         principalSchema: "RevConnect",
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "userID");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comments",
+                name: "Comment",
                 schema: "RevConnect",
                 columns: table => new
                 {
@@ -67,25 +67,25 @@ namespace RevConnectAPI.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comments", x => x.commentID);
+                    table.PrimaryKey("PK_Comment", x => x.commentID);
                     table.ForeignKey(
-                        name: "FK_Comments_Posts_postID",
+                        name: "FK_Comment_Post_postID",
                         column: x => x.postID,
                         principalSchema: "RevConnect",
-                        principalTable: "Posts",
+                        principalTable: "Post",
                         principalColumn: "postID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Comments_Users_userID",
+                        name: "FK_Comment_User_userID",
                         column: x => x.userID,
                         principalSchema: "RevConnect",
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "userID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Likes",
+                name: "Like",
                 schema: "RevConnect",
                 columns: table => new
                 {
@@ -97,81 +97,81 @@ namespace RevConnectAPI.Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Likes", x => x.likeID);
+                    table.PrimaryKey("PK_Like", x => x.likeID);
                     table.ForeignKey(
-                        name: "FK_Likes_Comments_commentID",
+                        name: "FK_Like_Comment_commentID",
                         column: x => x.commentID,
                         principalSchema: "RevConnect",
-                        principalTable: "Comments",
+                        principalTable: "Comment",
                         principalColumn: "commentID");
                     table.ForeignKey(
-                        name: "FK_Likes_Posts_postID",
+                        name: "FK_Like_Post_postID",
                         column: x => x.postID,
                         principalSchema: "RevConnect",
-                        principalTable: "Posts",
+                        principalTable: "Post",
                         principalColumn: "postID");
                     table.ForeignKey(
-                        name: "FK_Likes_Users_userID",
+                        name: "FK_Like_User_userID",
                         column: x => x.userID,
                         principalSchema: "RevConnect",
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "userID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_postID",
+                name: "IX_Comment_postID",
                 schema: "RevConnect",
-                table: "Comments",
+                table: "Comment",
                 column: "postID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_userID",
+                name: "IX_Comment_userID",
                 schema: "RevConnect",
-                table: "Comments",
+                table: "Comment",
                 column: "userID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Likes_commentID",
+                name: "IX_Like_commentID",
                 schema: "RevConnect",
-                table: "Likes",
+                table: "Like",
                 column: "commentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Likes_postID",
+                name: "IX_Like_postID",
                 schema: "RevConnect",
-                table: "Likes",
+                table: "Like",
                 column: "postID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Likes_userID",
+                name: "IX_Like_userID",
                 schema: "RevConnect",
-                table: "Likes",
+                table: "Like",
                 column: "userID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_userID",
+                name: "IX_Post_userID",
                 schema: "RevConnect",
-                table: "Posts",
+                table: "Post",
                 column: "userID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Likes",
+                name: "Like",
                 schema: "RevConnect");
 
             migrationBuilder.DropTable(
-                name: "Comments",
+                name: "Comment",
                 schema: "RevConnect");
 
             migrationBuilder.DropTable(
-                name: "Posts",
+                name: "Post",
                 schema: "RevConnect");
 
             migrationBuilder.DropTable(
-                name: "Users",
+                name: "User",
                 schema: "RevConnect");
         }
     }

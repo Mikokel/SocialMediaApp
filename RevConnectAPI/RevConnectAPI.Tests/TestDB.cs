@@ -14,11 +14,11 @@ namespace RevConnectAPI.Tests
         #region IDisposable Support  
         private bool disposedValue = false; // To detect redundant calls  
 
-        public RevConnectContext CreateContextForInMemory()
+        public RevConnectAPIContext CreateContextForInMemory()
         {
-            var option = new DbContextOptionsBuilder<RevConnectContext>().UseInMemoryDatabase(databaseName: "Test_Database").Options;
+            var option = new DbContextOptionsBuilder<RevConnectAPIContext>().UseInMemoryDatabase(databaseName: "Test_Database").Options;
 
-            var testContext = new RevConnectContext(option);
+            var testContext = new RevConnectAPIContext(option);
             if (testContext != null)
             {
                 testContext.Database.EnsureDeleted();
