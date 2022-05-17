@@ -21,7 +21,12 @@ import { ChatroomComponent } from './pages/chatroom/chatroom.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AppLoadingComponent } from './components/app-loading/app-loading.component';
+
 import { PostfeedComponent } from './pages/postfeed/postfeed.component';
+import { AddEditPostfeedComponent } from './pages/postfeed/add-edit-postfeed/add-edit-postfeed.component';
+import { ShowPostfeedComponent } from './pages/postfeed/show-postfeed/show-postfeed.component';
+import { PostfeedApiService  } from './postfeed-api.service.service';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +40,10 @@ import { PostfeedComponent } from './pages/postfeed/postfeed.component';
     LoginButtonComponent,
     LogoutButtonComponent,
     AppLoadingComponent,
-    PostfeedComponent
+    PostfeedComponent,
+    // AddEditPostfeedComponent
+    AddEditPostfeedComponent,
+    ShowPostfeedComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,7 @@ import { PostfeedComponent } from './pages/postfeed/postfeed.component';
       clientId: 'Sa0edHkASIaYLSQisCmSpaB4BOrODqbK'
     }),
   ],
-  providers: [],
+  providers: [PostfeedApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
