@@ -20,6 +20,15 @@
 }
 
 #buttons{
+    margin-right: 6px;
+    width : 65px;
+    height: 20px;
+    color:black;
+    background-color:aqua;
+    border-radius: 8px;
+}
+
+#button{
     margin-right: auto;
     width : 65px;
     height: 20px;

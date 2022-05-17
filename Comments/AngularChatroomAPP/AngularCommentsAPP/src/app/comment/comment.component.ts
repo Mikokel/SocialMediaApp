@@ -16,9 +16,10 @@ const headers= new HttpHeaders()
 })
 
 @Injectable()
-export class CommentComponent { 
+export class CommentComponent {
+    
 
-constructor(private httpClient: HttpClient) { }
+constructor(private http: HttpClient) { }
   comment = "";
   postComment = [] as any[];
   
@@ -32,7 +33,7 @@ constructor(private httpClient: HttpClient) { }
   
     const url ='https://localhost:7232/api/Comment/'
     this.http.post(url,body1,{'headers':headers})
-  .subscribe((res)=>{
+   .subscribe((res)=>{
       
       console.log()  
     })
@@ -40,5 +41,10 @@ constructor(private httpClient: HttpClient) { }
     this.comment = "";
 
     } 
+    
+    clear () {
+      this.comment = "";
+    }
+  
 }
 
