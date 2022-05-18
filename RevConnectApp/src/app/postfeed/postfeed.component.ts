@@ -17,7 +17,7 @@ export class Post{
   templateUrl: './postfeed.component.html',
   styleUrls: ['./postfeed.component.css']
 })
-export class PostfeedComponent implements OnInit {
+export class aPostfeedComponent implements OnInit {
 
 public posts: Array<any> =[];  
   constructor( private httpClient: HttpClient ) 

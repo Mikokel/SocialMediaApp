@@ -25,7 +25,7 @@ import { AppLoadingComponent } from './components/app-loading/app-loading.compon
 import { PostfeedComponent } from './pages/postfeed/postfeed.component';
 import { AddEditPostfeedComponent } from './pages/postfeed/add-edit-postfeed/add-edit-postfeed.component';
 import { ShowPostfeedComponent } from './pages/postfeed/show-postfeed/show-postfeed.component';
-import { PostfeedApiService  } from './postfeed-api.service.service';
+import { PostfeedApiService  } from './postfeed-api.service';
 
 
 @NgModule({

@@ -4,17 +4,18 @@
       <th>Post</th>
       <th>Date</th>
       <th>Image</th>
-      <th>Comments</th>
-      <th>Likes</th>
+      <!-- <th>Comments</th> -->
+      <!-- <th>Likes</th> -->
     </thead>
     <tbody>
         <tr *ngFor="let item of postfeedList$|async">
+            <td>hello</td>
             <td>{{item.postID}}</td>
             <td>{{item.body}}</td>
             <td>{{item.date}}</td>
             <td>{{item.image}}</td>
-            <td>{{item.postComments}}</td>    
-            <td>{{item.postLikes}}</td>
+            <!-- <td>{{item.postComments}}</td>    
+            <td>{{item.postLikes}}</td> -->
         </tr>      
     </tbody>
 </table>

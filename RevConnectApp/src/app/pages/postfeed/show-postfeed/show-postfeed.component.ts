@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostfeedApiService } from 'src/app/postfeed-api.service.service';
+import { PostfeedApiService } from 'src/app/postfeed-api.service';
 
 
 @Component({
@@ -21,7 +21,6 @@ export class ShowPostfeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.postfeedList$ = this.service.getPostfeedList();
-
 
   }
 
