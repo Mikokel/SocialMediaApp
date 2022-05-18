@@ -1,10 +1,84 @@
-.like-button {
-    font-size: 1rem;
-    padding: 5px 10px;
-    color: #585858;
-  }
-  
-  .liked {
-    font-weight: bold;
-    color: #1565c0;
-  }
+
+.fa-heart{
+  color: rgb(123, 118, 118);
+  cursor: pointer;
+  font-size: 15px;
+  border:red;
+}
+
+.highlited{
+  color: red;
+}
+#post-content{
+  background-color: rgb(226, 222, 222);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#text-post-content{
+  width:1020px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: none;
+  border-color: rgb(226, 222, 222);
+}
+#inputlg{
+  padding-right: 50px;
+}
+.fa-image{
+  font-size: 15px;
+  cursor: pointer;
+  color: green;
+}
+.fa-video{
+  color: blue;
+}
+.fa-calendar{
+  color: red;
+}
+.post-objects{
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top:8px ;
+}
+.fa-solid{
+  margin-left: 20px;
+}
+.objects{
+  margin-left: 6px;
+}
+#post{
+  float: right;
+  font-size: 12px;
+  width: 50px;
+  padding: 0%;
+  border: none;
+}
+.post-element{
+display: inline;
+}
+.post-container{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.post-container img{
+  margin-top: 7px;
+}
+.fa-paper-plane{
+  margin-top: 10px;
+  margin-left: -50px;
+  font-size: 20px;
+  color: blue;
+  cursor: pointer;
+}
+i.fa-paper-plane{
+  border: 2px solid rgb(255, 255, 255);
+  margin-bottom: 45px;
+  background-color: white;
+  padding: 3px;
+  border-radius: 10px;
+  z-index: 1;
+
+}

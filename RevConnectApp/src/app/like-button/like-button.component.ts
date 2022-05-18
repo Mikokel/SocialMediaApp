@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-like-button',
@@ -6,16 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./like-button.component.css']
 })
 export class LikeButtonComponent implements OnInit {
-  likeCount= 100;
-  isLiked = false;
-  
-  likeTheButton = () => {
-    if(this.isLiked)
-    this.likeCount--;
-    else
-    this.likeCount++;
+  @Input()
+  isActive!: boolean;
 
-    this.isLiked = !this.isLiked
+  onClick(){
+    this.isActive = !this.isActive;
   }
   constructor() { }
 

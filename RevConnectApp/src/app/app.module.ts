@@ -12,7 +12,6 @@ import { AuthModule } from '@auth0/auth0-angular';
 
 
 import { AppComponent } from './app.component';
-like_a_post
 import { LikeButtonComponent } from './like-button/like-button.component';
 
 import { NavbarComponent } from './sharepage/navbar/navbar.component';
@@ -24,14 +23,11 @@ import { ChatroomComponent } from './pages/chatroom/chatroom.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { AppLoadingComponent } from './components/app-loading/app-loading.component';
- main
 
 @NgModule({
   declarations: [
     AppComponent,
-like_a_post
-    LikeButtonComponent
-
+    LikeButtonComponent,
     NavbarComponent,
     FooterComponent,
     HomeComponent,
@@ -41,7 +37,6 @@ like_a_post
     LoginButtonComponent,
     LogoutButtonComponent,
     AppLoadingComponent
-main
   ],
   imports: [
     BrowserModule,
