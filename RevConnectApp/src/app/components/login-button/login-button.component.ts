@@ -8,13 +8,21 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class LoginButtonComponent implements OnInit {
 
+  
+
   constructor(public auth: AuthService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    
+   }
 
   //function for the login button 
   loginWithRedirect(): void {
     this.auth.loginWithRedirect();
+   
+      
   }
+ 
 
 }

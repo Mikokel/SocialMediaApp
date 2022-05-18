@@ -10,7 +10,8 @@ const routes: Routes = [
     {path:'', component:HomeComponent},
     {path:'chatroom', component:ChatroomComponent},
     {path:'settings', component:SettingsComponent},
-    {path:'user-profile', component:UserProfileComponent}
+    {path:'user-profile', component:UserProfileComponent},
+    {path:'refresh', component:SettingsComponent}
 
 ];
 

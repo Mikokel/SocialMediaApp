@@ -8,5 +8,8 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AppComponent {
   title = 'RevConnectApp';
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService) {
+
+  }
+  
 }

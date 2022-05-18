@@ -1,3 +1,6 @@
+
+
+
 <div class="header">
 <ul class="nav justify-content-center">
     <li class="nav-item">
@@ -17,8 +20,17 @@
     <!-- logout button when the user is logged in and authenticated -->
     <app-logout-button *ngIf="auth.isAuthenticated$ | async"></app-logout-button>
   </ul>
+
+  
+
   <nav class="nav justify-content-left">
       <a class="navbar-brand" routerLink="">
       <img src="./../../assets/img/revature-logo.png" alt="Revature Logo" width="200" height="120">
       </a>
- 
+
+      <!-- <app-settings 
+  *ngIf="auth.user$ | async as user"
+  [user1]="user"
+  ></app-settings>
+  <h1>{{this.user}}</h1>
+      -->

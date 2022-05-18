@@ -21,14 +21,22 @@
             <div class="tab-pane fade active show" id="account-general">
 
               <div class="card-body media align-items-center">
-                <img src="https://th.bing.com/th/id/OIP.v9HxsSh5flF36gRRywEKGQAAAA?pid=ImgDet&rs=1" alt="" class="d-block ui-w-80">
+                <!-- <h1>{{this.path}}</h1>
+                <app-user-profile 
+                [url]="this.path"
+                *ngIf="(auth.isAuthenticated$ | async ) === true" 
+                
+                ></app-user-profile> -->
+                <img  src= "https://imagesprofile1.blob.core.windows.net/image/{{this.Auth0_ID}}" alt=""  class="d-block ui-w-80">
+                <!-- <button class="btn"  (click)="showpics( this.Auth0_ID )">showpics</button> -->
+                
                 <div class="media-body ml-4">
                   <label class="btn">
                     Choose a File
-                    <input type="file" class="account-settings-fileinput">
+                    <input  type="file" class="account-settings-fileinput" (change)="onFileSelected($event)" >
                   </label> &nbsp;
-                  <button class="btn">Upload Picture</button>
-                  <button type="button" class="btn btn-default md-btn-flat">Reset</button>
+                  <button class="btn" (click)="all()">Upload Picture</button>
+                  <!-- <button type="button" (click)="onUpdate()" class="btn btn-default md-btn-flat">Update Picture</button> -->
 
                   <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
                 </div>
