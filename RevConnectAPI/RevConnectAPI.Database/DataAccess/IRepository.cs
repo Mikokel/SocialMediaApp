@@ -77,7 +77,7 @@ namespace RevConnectAPI.Database
         
             </summary>
         */
-        List<Like> GetAllLikesForPost(int PostID);
+        List<Like> GetAllLikes();
         /* 
             <summary>
 

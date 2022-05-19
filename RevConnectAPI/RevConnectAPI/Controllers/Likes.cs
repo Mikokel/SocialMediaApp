@@ -18,16 +18,16 @@ namespace RevConnectAPI.Controllers
 
 
         // GET: api/<LikeController>
-        [HttpGet("{postID}")]
-        public ActionResult<List<Like>> GetAllLikesFromPost(int postID)
+        [HttpGet]
+        public ActionResult<List<Like>> GetAllLikes()
         {
             try
             {
-                return _repository.GetAllLikesForPost(postID);
+                return _repository.GetAllLikes();
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"error in retriving all likes of post with id: {postID}");
+                _logger.LogError(ex, $"error in retriving all likes");
                 return StatusCode(500);
             }
         }

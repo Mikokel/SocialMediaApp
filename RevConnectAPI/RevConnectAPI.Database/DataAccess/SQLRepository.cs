@@ -60,9 +60,9 @@ namespace RevConnectAPI.Database
         }
         #endregion
         #region Like Methods
-        public List<Like> GetAllLikesForPost(int PostID)
+        public List<Like> GetAllLikes()
         {
-            return _context.Likes.Where(x => x.postID == PostID).ToList();
+            return _context.Likes.ToList();
         }
 
         public bool PostALikeForPost(Like like)
@@ -118,6 +118,10 @@ namespace RevConnectAPI.Database
             List<Post> Post5 = new List<Post>(5);
             if (AllPosts != null)
             {
+                if(AllPosts.Count < 5)
+                {
+                    return AllPosts;
+                }
                 for (int i = 0; i < 5; i++)
                 {
                     Post5.Add(AllPosts[i]);

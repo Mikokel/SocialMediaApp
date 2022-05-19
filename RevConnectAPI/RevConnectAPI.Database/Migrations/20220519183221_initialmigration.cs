@@ -4,7 +4,7 @@
 
 namespace RevConnectAPI.Database.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class initialmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,7 +58,7 @@ namespace RevConnectAPI.Database.Migrations
                 schema: "RevConnect",
                 columns: table => new
                 {
-                    commentID = table.Column<int>(type: "int", maxLength: 256, nullable: false)
+                    commentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     body = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     date = table.Column<string>(type: "nvarchar(max)", nullable: false),

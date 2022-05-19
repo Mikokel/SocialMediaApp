@@ -27,7 +27,6 @@ namespace RevConnectAPI.Database.Migrations
                 {
                     b.Property<int>("commentID")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(256)
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("commentID"), 1L, 1);
@@ -57,11 +56,11 @@ namespace RevConnectAPI.Database.Migrations
 
             modelBuilder.Entity("RevConnectAPI.Database.Like", b =>
                 {
-                    b.Property<int>("likeID")
+                    b.Property<int?>("likeID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("likeID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("likeID"), 1L, 1);
 
                     b.Property<int?>("commentID")
                         .HasColumnType("int");
