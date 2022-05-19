@@ -1,0 +1,104 @@
+<p>chat works!</p>
+<!--
+    <div class="container">
+    <div class="user-container">
+        <div class="user-profile">
+            <div class="user-pic"> </div>
+            <div class="user-name">User Name</div>
+        </div>
+        
+        <div class="user-list">
+            <ol *ngIf="onlineUsers">
+                <li *ngFor="let user of onlineUsers ">
+                    
+                    <div mat-line>{{user.name}} {{user.connectionId}}</div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="message-container">
+        <ul>
+            <li *ngFor="let chat of chatContainer">
+                <div mat-line [ngClass]="chat.isSender == true ? 'sender-message-body': 'receiver-message-body'">
+                    <div class="user-icon">
+                       
+                    </div>
+                    <div class="message-text">
+                        <div class="user-date-label"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
+                        <div class="message">{{chat.message}}</div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="input-container">
+            <div> 
+                             
+                <label>Message</label>
+                <input type="text" placeholder="Placeholder" class="chat-input"  [(ngModel)]="message"/>
+                    
+            </div>
+            <div class="button-container">
+                <button color="primary" (click)="onSendMessage()">
+                    send
+                </button>
+            </div>
+            
+        </div>
+    </div>
+</div> 
+-->
+<div *ngIf="auth.user$ | async as loggedInUser">
+    <div class="user-list">
+        <ol *ngIf="onlineUsers">
+            <li *ngFor="let user of onlineUsers">
+                <button type="button" (click)="onSelectReceiver(user)"> 
+                    <span class="name">{{user.name}}</span>
+                </button>
+            </li>
+        </ol>
+    </div>
+    <div class="input">
+        <div> 
+
+            <label>Message</label>
+            <input type="text" placeholder="type for chatting ..." class="chat-input"  [(ngModel)]="message"/>
+
+        </div>
+        <div class="button-container">
+            <button color="primary" (click)="onSendMessage()">
+                send
+            </button>
+        </div>
+
+    </div>
+    <div class="message" align="left">
+        <div>
+            <div *ngFor="let chat of chatContainer">
+
+                <div *ngIf="chat.sender !== loggedInUser.nickname">
+                    <div *ngIf="chat.receiver === loggedInUser.nickname || chat.receiver === 'All'" class="receiver-message-body">
+                        <div class="message-text">
+                            <div class="user-date-label"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
+                            <div class="message" bgcolor="yellow">{{chat.message}}</div><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="message" align="right">
+        <div>
+            <div *ngFor="let chat of chatContainer">
+
+                <div *ngIf="chat.sender === loggedInUser.nickname" class="sender-message-body" >
+                    
+                    <div class="message-text">
+                        <div class="user-date-label"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
+                        <div class="message" bgcolor="red">{{chat.message}}</div><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
