@@ -17,9 +17,10 @@ const headers= new HttpHeaders()
 
 @Injectable()
 export class CommentComponent {
-    
 
 constructor(private http: HttpClient) { }
+  
+  isShown: boolean = false ; // hidden by default
   comment = "";
   postComment = [] as any[];
   
@@ -45,6 +46,11 @@ constructor(private http: HttpClient) { }
     clear () {
       this.comment = "";
     }
+    toggleShow() {
+
+      this.isShown = ! this.isShown;
+      
+      }
   
 }
 

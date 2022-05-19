@@ -1,26 +1,22 @@
-<div id="commentContainer">
-    <div class="form-group">
+<button (click)="toggleShow()" type="checkbox" >Comment</button>
+<div *ngIf="isShown" class="row container-fluid"  id="divshow" >
     <h2 id="comment">Leave a Replay</h2>
+    <input type="text" id="comment-box" [(ngModel)]="comment" placeholder="Hey...say something!">
+    <br/>
+    <br/> 
+    <input type = "submit" id ="buttons" (click)="post()" value="comment">
+    <button id="button" (click)="clear()">Cancel</button>
+    <label>
+        <div *ngFor="let comments of postComment ">
+           <p>  {{comments}}  </p>  
+        </div> 
+        </label>
+ </div>
+
+
  
-</div>
-
-<input type="text" id="comment-box" [(ngModel)]="comment" placeholder="Hey...say something!">
-<br/>
-<br/> 
 
 
-<div class="btn">
-<input type = "submit" id ="buttons" (click)="post()" value="comment">
-<button id="button" (click)="clear()">Cancel</button>
-</div> 
-
-<br/>
-<br/>
-<label>
-<div *ngFor="let comments of postComment ">
-   <p> <textarea id="comments"> {{comments}} </textarea> </p>  
-</div> 
-</label>
 
 
 
