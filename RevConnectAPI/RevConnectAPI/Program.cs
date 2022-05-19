@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using RevConnectAPI.Database.DataAccess;
+using RevConnectAPI.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +9,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
+builder.Services.AddScoped<IRepository, SQLRepository>();
 
 builder.Services.AddDbContext<RevConnectContext>(options =>
 {
@@ -27,6 +29,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseAuthorization();
+app.UseCors(
+    x => x
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials()
+            );
 
 app.MapControllers();
 

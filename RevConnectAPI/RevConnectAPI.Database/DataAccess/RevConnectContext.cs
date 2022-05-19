@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using RevConnectAPI.Database.Models;
 
-namespace RevConnectAPI.Database.DataAccess
+namespace RevConnectAPI.Database
 {
     public class RevConnectContext:DbContext
     {

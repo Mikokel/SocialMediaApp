@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevConnectAPI.Database.Models
+namespace RevConnectAPI.Database
 {
     public class Post
     {

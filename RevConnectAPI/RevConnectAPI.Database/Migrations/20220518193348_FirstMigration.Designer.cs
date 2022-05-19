@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RevConnectAPI.Database.DataAccess;
+using RevConnectAPI.Database;
 
 #nullable disable
 
 namespace RevConnectAPI.Database.Migrations
 {
     [DbContext(typeof(RevConnectContext))]
-    [Migration("20220510011930_initialCreate")]
-    partial class initialCreate
+    [Migration("20220518193348_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,7 +25,7 @@ namespace RevConnectAPI.Database.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Comment", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Comment", b =>
                 {
                     b.Property<int>("commentID")
                         .ValueGeneratedOnAdd()
@@ -57,11 +57,10 @@ namespace RevConnectAPI.Database.Migrations
                     b.ToTable("Comments", "RevConnect");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Like", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Like", b =>
                 {
                     b.Property<int>("likeID")
                         .ValueGeneratedOnAdd()
-                        .HasMaxLength(256)
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("likeID"), 1L, 1);
@@ -86,7 +85,7 @@ namespace RevConnectAPI.Database.Migrations
                     b.ToTable("Likes", "RevConnect");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Post", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Post", b =>
                 {
                     b.Property<int>("postID")
                         .ValueGeneratedOnAdd()
@@ -117,7 +116,7 @@ namespace RevConnectAPI.Database.Migrations
                     b.ToTable("Posts", "RevConnect");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.User", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.User", b =>
                 {
                     b.Property<int>("userID")
                         .ValueGeneratedOnAdd()
@@ -158,58 +157,58 @@ namespace RevConnectAPI.Database.Migrations
                     b.ToTable("Users", "RevConnect");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Comment", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Comment", b =>
                 {
-                    b.HasOne("RevConnectAPI.Database.Models.Post", null)
+                    b.HasOne("RevConnectAPI.Database.Post", null)
                         .WithMany("postComments")
                         .HasForeignKey("postID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RevConnectAPI.Database.Models.User", null)
+                    b.HasOne("RevConnectAPI.Database.User", null)
                         .WithMany("userComments")
                         .HasForeignKey("userID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Like", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Like", b =>
                 {
-                    b.HasOne("RevConnectAPI.Database.Models.Comment", null)
+                    b.HasOne("RevConnectAPI.Database.Comment", null)
                         .WithMany("commentLikes")
                         .HasForeignKey("commentID");
 
-                    b.HasOne("RevConnectAPI.Database.Models.Post", null)
+                    b.HasOne("RevConnectAPI.Database.Post", null)
                         .WithMany("postLikes")
                         .HasForeignKey("postID");
 
-                    b.HasOne("RevConnectAPI.Database.Models.User", null)
+                    b.HasOne("RevConnectAPI.Database.User", null)
                         .WithMany("userLikes")
                         .HasForeignKey("userID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Post", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Post", b =>
                 {
-                    b.HasOne("RevConnectAPI.Database.Models.User", null)
+                    b.HasOne("RevConnectAPI.Database.User", null)
                         .WithMany("userPosts")
                         .HasForeignKey("userID");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Comment", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Comment", b =>
                 {
                     b.Navigation("commentLikes");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.Post", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.Post", b =>
                 {
                     b.Navigation("postComments");
 
                     b.Navigation("postLikes");
                 });
 
-            modelBuilder.Entity("RevConnectAPI.Database.Models.User", b =>
+            modelBuilder.Entity("RevConnectAPI.Database.User", b =>
                 {
                     b.Navigation("userComments");
 

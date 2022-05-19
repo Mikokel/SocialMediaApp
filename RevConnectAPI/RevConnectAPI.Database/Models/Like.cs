@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RevConnectAPI.Database.Models
+namespace RevConnectAPI.Database
 {
     public class Like
     {
         [Key]
-        [MaxLength(256)]
-        public int likeID { get; set; }
+        public int? likeID { get; set; }
         [ForeignKey("User")]
         public int userID { get; set; }
         [ForeignKey("Post")]
