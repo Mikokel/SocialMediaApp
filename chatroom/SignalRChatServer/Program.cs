@@ -2,7 +2,8 @@ using SignalRChat.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSignalR();
+//builder.Services.AddSignalR();
+builder.Services.AddSignalR().AddAzureSignalR();
 builder.Services.AddCors(Options => {
     Options.AddPolicy("AllowAll",
         builder =>
