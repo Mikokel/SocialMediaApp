@@ -1,0 +1,51 @@
+.messageS
+{
+    background:rgb(184, 189, 216);
+    border-radius: 5px;
+    margin: 20px;
+    margin-left: 45%;
+    align-self: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-align: left;
+    width: fit-content;
+}
+.messageR
+{
+    background:rgb(184, 189, 216);
+    border-radius: 5px;
+    margin: 20px;
+    margin-right: 24%;
+    align-self: left;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-align: left;
+    width: fit-content;
+
+}
+.user-date-labelR
+{
+    background:rgb(115,165,194);
+    padding: 3px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color:rgb(253,181,21);
+    font-size: 20px;
+    color: white;
+    width: fit-content;
+}
+.user-date-labelS
+{
+    background:rgb(242, 105, 38);
+    padding: 3px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color:rgb(72,76,86);
+    font-size: 20px;
+    color: white;
+    width: fit-content;
+}
+.chat-input
+{
+    width: 40%;
+}
