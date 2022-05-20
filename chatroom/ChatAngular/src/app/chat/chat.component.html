@@ -61,7 +61,7 @@
     <div class="input">
         <div> 
 
-            <label>Message</label>
+            <label>Message </label>
             <input type="text" placeholder="type for chatting ..." class="chat-input"  [(ngModel)]="message"/>
 
         </div>
@@ -72,30 +72,30 @@
         </div>
 
     </div>
-    <div class="message" align="left">
+    <div class="messageR" align="left">
         <div>
             <div *ngFor="let chat of chatContainer">
 
                 <div *ngIf="chat.sender !== loggedInUser.nickname">
                     <div *ngIf="chat.receiver === loggedInUser.nickname || chat.receiver === 'All'" class="receiver-message-body">
                         <div class="message-text">
-                            <div class="user-date-label"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
-                            <div class="message" bgcolor="yellow">{{chat.message}}</div><br />
+                            <div class="user-date-labelR"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
+                            <div class="messageRR" bgcolor="yellow">{{chat.message}}</div><br />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="message" align="right">
+    <div class="messageS" align="right">
         <div>
             <div *ngFor="let chat of chatContainer">
 
                 <div *ngIf="chat.sender === loggedInUser.nickname" class="sender-message-body" >
                     
                     <div class="message-text">
-                        <div class="user-date-label"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
-                        <div class="message" bgcolor="red">{{chat.message}}</div><br />
+                        <div class="user-date-labelS"><span> {{chat.sender}}</span> to <span> {{chat.receiver}}</span></div>
+                        <div class="messageSS" bgcolor="red">{{chat.message}}</div><br />
                     </div>
                 </div>
             </div>
