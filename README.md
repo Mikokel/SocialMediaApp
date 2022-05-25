@@ -41,8 +41,7 @@ To-do list:
 - Inside the package manager console, set: 
  `“Default project: RevConnectAPI”`
 
-  then run the command:  
-  `update-database`
+  then run the command: `update-database`
 
 - `dotnet run ./SocialMediaApp/RevConnectAPP`
 - `npm install ./SocialMediaApp/RevConnectAPI`
@@ -50,6 +49,7 @@ To-do list:
 
 
 ## Usage
+
 - Create an account 
 - View posts in Post Feed
 - Like a post
@@ -62,8 +62,23 @@ To-do list:
 
 Team Leads
 - Brian Keener 
+    - Chatroom
+    - Comments
+    - Dark Mode
+    - Documentation
+    - "Like" a post
+    - Post Feed
 - Dan Gagne
+    - Unit testing 
+    - Docker
+    - Mockaroo
+    - SonarCloud
+    - Static Web Hosting
 - Francis Chung
+    - Auth0
+    - Create a profile
+    - Upload a profile picture
+    - User profile
 
 Post Feed
 - Brian Keener
